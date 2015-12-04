@@ -7,7 +7,7 @@
 
 import streams
 import pwm
-from drivers.toishield import toishield
+from toishield import toishield
 
 streams.serial()
 

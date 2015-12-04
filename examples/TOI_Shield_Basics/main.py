@@ -8,7 +8,7 @@
 
 import streams
 import adc
-from drivers.toishield import toishield
+from toishield import toishield
 
 streams.serial()
 

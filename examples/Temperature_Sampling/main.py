@@ -8,7 +8,7 @@
 # This example is based on the Basic Analog Sensor example of the Smart Sensor Library
 
 import streams
-from drivers.toishield import toishield
+from toishield import toishield
 
 def out(obj):
     print("----------------")

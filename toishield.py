@@ -41,8 +41,8 @@ An Arduino-like style is also supported::
 
 """
 
-from libs.smartsensors import analogSensors
-from libs.smartsensors import digitalSensors
+from smartsensors import analogSensors
+from smartsensors import digitalSensors
 import icu
 import pwm
 
@@ -91,7 +91,7 @@ if  __defined(LAYOUT, "arduino_uno"):
     buzzer_pin=D8.PWM
     led_pin=D9
 
-if __defined(BOARD,"st_nucleo"):
+if __defined(BOARD,"st_nucleof401re"):
     aux1.PWM = A0.PWM
     # aux1.ICU = A0.ICU
 
@@ -176,12 +176,12 @@ if  __defined(LAYOUT,"particle"):
     touch_pin=D7
     led_pin=D6
 
-if __defined(BOARD,"photon"):
+if __defined(BOARD,"particle_photon"):
     aux2.ADC = D9.ADC
     aux2.PWM = D9.PWM
     aux2.DIO = D9
     buzzer_pin=D8
-elif __defined(BOARD,"spark_v2"):
+elif __defined(BOARD,"particle_core"):
     aux2.ADC = A7.ADC
     aux2.PWM = A7.PWM
     aux2.DIO = A7

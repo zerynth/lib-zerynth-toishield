@@ -8,7 +8,7 @@
 
 import streams
 # import toishield module
-from drivers.toishield import toishield
+from toishield import toishield
         
 # define a function that takes a sensor object as parameter and checks the
 # maximum peak to peak extension of the signal in a preset window

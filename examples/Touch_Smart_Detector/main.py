@@ -8,7 +8,7 @@
 import streams
 
 # import toishield module
-from drivers.toishield  import toishield
+from toishield  import toishield
 
 # define three functions that print three different messages
 

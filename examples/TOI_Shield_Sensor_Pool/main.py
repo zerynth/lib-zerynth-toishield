@@ -6,8 +6,8 @@
 ###############################################################################
 
 import streams
-from drivers.toishield import toishield
-from libs.smartsensors import sensorPool
+from toishield import toishield
+from smartsensors import sensorPool
 
 # see Pool Example for sensorPool details
 
