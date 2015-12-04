@@ -81,46 +81,6 @@ if  __defined(LAYOUT, "arduino_uno"):
 
     aux8 = ToiPin()
 
-    '''
-    if __defined(BOARD,"st_nucleo"):
-        aux1.PWM = A0.PWM
-        # aux1.ICU = A0.ICU
-
-        aux2.PWM = A1.PWM
-        # aux2.ICU = A1.ICU
-
-        aux3.MOSI = D11.MOSI
-        aux3.ADC = D11.ADC
-
-        aux4.MISO = D12.MISO
-        aux4.ADC = D12.ADC
-
-        aux5.SCLK = D13.SCLK
-        aux5.ADC = D13.ADC
-
-        # aux6.PWM = D14.PWM
-
-        aux7.DIO = D15
-        # aux7.ICU = D15.ICU
-        # aux7.PWM = D15.PWM
-        aux7.SCL = D15.SCL
-
-        aux8.DIO = D14
-        aux8.SDA = D14.SDA
-
-    if __defined(BOARD, "arduino_due"):
-        aux3.MOSI = D63.MOSI # ?
-
-        aux4.MISO = D62.MISO
-
-        aux5.SCLK = D64.SCLK
-
-        aux7.DIO = D21
-        aux7.SCL = D21.SCL
-
-        aux8.DIO = D20
-        aux8.SDA = D20.SDA
-    '''
 
     temperature_pin = A4
     light_pin = A5
@@ -207,26 +167,7 @@ if  __defined(LAYOUT,"particle"):
     aux8.PWM = D1.PWM
     aux8.SCL = D1.SCL
     # aux8.ICU = D1.ICU
-    '''
-    if __defined(BOARD, "spark_v2"):
-        # aux7.RX = D0.RX
 
-        # aux8.TX = D1.TX
-        pass
-
-    if __defined(BOARD, "photon"):
-        # aux1.DAC = A3.DAC
-
-        # aux3.PWM = D2.PWM
-        # aux3.RX  = D2.RX
-
-        # aux4.PWM = D2.PWM
-
-        # aux6.SS = D5.SS
-
-        # aux7.TX = D0.TX
-        pass
-    '''
     temperature_pin = A1
     light_pin = A0
     microphone_pin = A2
