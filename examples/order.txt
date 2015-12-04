@@ -1,0 +1,8 @@
+#TOI Shield
+	TOI_Shield_Basics
+	Microphone_Peak_Detector
+	Temperature_Sampling
+	Light_Controlled_PWM
+	TOI_Shield_Sensor_Pool
+	Touch_Smart_Detector
+	TOI_Shield_IR_Capture

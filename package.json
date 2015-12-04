@@ -1,0 +1,11 @@
+{
+        "author": "dev@viperize.it",
+        "description": "TOI Shield",
+        "name": "TOI Shield",
+        "fullname":"lib.viper.toishield",
+        "dependencies": {
+		"lib.viper.smartsensors":"r0.3.0"
+        }
+}
+
+

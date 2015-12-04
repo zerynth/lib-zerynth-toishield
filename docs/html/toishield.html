@@ -1,0 +1,312 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TouchSensor class &mdash; TOI Shield 0.3.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/viper.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="TOI Shield 0.3.0 documentation" href="index.html"/>
+        <link rel="prev" title="TOIShield" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> TOI Shield</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">TouchSensor class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#lightsensor-class">LightSensor class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#temperaturesensor-class">TemperatureSensor class</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#microphonesensor-class">MicrophoneSensor class</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">TOI Shield</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>TouchSensor class</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/toishield.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <span class="target" id="module-toishield"></span><p>This module contains class definitions and instances for toishield&#8217;s sensors.
+Furthermore it takes care of multi-board pin compatibility providing generic names for every useful pin on the shield.
+Every sensor of the toishield is instanced as a child class of the digital or the analog sensor class (as defined in smartsensors library).
+Moreover, few peculiar methods are added.
+The class inherits the whole set of sampling methods included in the smart sensor library (startSampling,doEverySample,addCheck,...)</p>
+<p>Pin names:</p>
+<blockquote>
+<div><ul class="simple">
+<li>toishield.temperature_pin</li>
+<li>toishield.light_pin</li>
+<li>toishield.microphone_pin</li>
+<li>toishield.iremitter_pin</li>
+<li>toishield.irreceiver_pin</li>
+<li>toishield.touch_pin</li>
+<li>toishield.buzzer_pin</li>
+<li>toishield.led_pin</li>
+</ul>
+</div></blockquote>
+<p>Sensors:</p>
+<blockquote>
+<div><ul class="simple">
+<li>light (analogSensors): it is an instance of the analogSensor class configured for the TOI Shield light sensor</li>
+<li>microphone (analogSensors): it is an instance of the analogSensor class configured for the TOI Shield microphone</li>
+<li>temperature (analogSensors): it is an instance of the analogSensor class configured for the TOI Shield temperature sensor</li>
+<li>touch (digitalSensors): it is an instance of the digitalSensor class configured for the TOI Shield touch sensor</li>
+</ul>
+</div></blockquote>
+<p>For example, sampling the temperature in Celsius can be done with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">toishield</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">setNormFunc</span><span class="p">(</span><span class="n">toishield</span><span class="o">.</span><span class="n">toCelsius</span><span class="p">)</span>
+<span class="n">toishield</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">startSampling</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="bp">None</span><span class="p">,</span><span class="s">&quot;norm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The smartsensors lib allows the definition of a function to be called periodically. See the smartsensors lib documentation for more details.</p>
+<p>An Arduino-like style is also supported:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+    <span class="n">toishield</span><span class="o">.</span><span class="n">temperature</span><span class="o">.</span><span class="n">getCelsius</span><span class="p">()</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="touchsensor-class">
+<h1>TouchSensor class<a class="headerlink" href="#touchsensor-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toishield.TouchSensor">
+<em class="property">class </em><code class="descname">TouchSensor</code><a class="headerlink" href="#toishield.TouchSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides simple methods for the detection of single and double touch on the TOI Shield integrated capacitive touch sensor.</p>
+<p>An instance of the class is available by calling the toishield.touch attribute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toishield.onSingleTouch">
+<code class="descname">onSingleTouch</code><span class="sig-paren">(</span><em>min_time</em>, <em>max_time</em>, <em>to_do</em>, <em>long_fn = None</em><span class="sig-paren">)</span><a class="headerlink" href="#toishield.onSingleTouch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a to_do function to be executed when a touch occurs and lasts more than min_time and less than max_time (expressed in milliseconds), if max_time limit is exceeded long_fn is called.</p>
+</dd></dl>
+
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>min_time (int): minimum touch time</li>
+<li>max_time (int): maximum touch time after that the touch is not considered anymore as a single touch but as a long touch</li>
+<li>to_do (function): function to be executed when a single-touch occurs</li>
+<li>long_fn (function, optional): function to be executed when a long touch occurs</li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="toishield.onDoubleTouch">
+<code class="descname">onDoubleTouch</code><span class="sig-paren">(</span><em>min_time</em>, <em>max_time</em>, <em>to_do</em>, <em>long_fn = None</em><span class="sig-paren">)</span><a class="headerlink" href="#toishield.onDoubleTouch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a first_action function to be executed when a touch occurs and lasts more than min_time and less than max_time (expressed in milliseconds), if max_time limit is
+exceeded long_fn is executed.</p>
+<p>When first_action constrains are respected, if a second touch occurs at most after max_interval milliseconds and the length of the touch is between min_time and max_time, then second_action function is called.</p>
+</dd></dl>
+
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><ul class="first last simple">
+<li>min_time (int): minimum touch time</li>
+<li>max_time (int): maximum touch time after that the touch is not considered anymore as a single touch but as a long touch</li>
+<li>max_interval (int): the maximum time span between touches to consider a double touch event instead of two separated single touches.</li>
+<li>first_action (function): function to be executed when a single-touch occurs</li>
+<li>second_action (function, optional): function to be executed when a double touch occurs</li>
+<li>long_fn (function, optional): function to be executed when a long touch occurs</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="lightsensor-class">
+<h1>LightSensor class<a class="headerlink" href="#lightsensor-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toishield.LightSensor">
+<em class="property">class </em><code class="descname">LightSensor</code><a class="headerlink" href="#toishield.LightSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides a default getFloat() normalization method for the photoresistor integrated in the toishield.</p>
+<p>An instance of the class is available by calling the toishield.light attribute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toishield.getFloat">
+<code class="descname">getFloat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#toishield.getFloat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return samples normalized between 0 and 1.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="temperaturesensor-class">
+<h1>TemperatureSensor class<a class="headerlink" href="#temperaturesensor-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toishield.TemperatureSensor">
+<em class="property">class </em><code class="descname">TemperatureSensor</code><a class="headerlink" href="#toishield.TemperatureSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides two default normalization method for the temperature sensor: getFloat() and getCelsius()</p>
+<p>An instance of the class is available by calling the toishield.temperature attribute.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="toishield.getCelsius">
+<code class="descname">getCelsius</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#toishield.getCelsius" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return samples directly converted in celsius degrees.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">getFloat</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return samples normalized between 0 and 1.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="microphonesensor-class">
+<h1>MicrophoneSensor class<a class="headerlink" href="#microphonesensor-class" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="toishield.MicrophoneSensor">
+<em class="property">class </em><code class="descname">MicrophoneSensor</code><a class="headerlink" href="#toishield.MicrophoneSensor" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class provides a default getFloat() normalization method for the microphone.</p>
+<p>An instance of the class is available by calling toishield.microphone attribute.</p>
+<p>toishield.microphone.skipEval (see Sensor class) is set to true because of the
+high sampling frequencies that may be needed by the sensor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt>
+<code class="descname">getFloat</code><span class="sig-paren">(</span><span class="sig-paren">)</span></dt>
+<dd><p>Return samples normalized between 0 and 1.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="TOIShield"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright Viper Team.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.3.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
