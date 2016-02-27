@@ -2,9 +2,9 @@
         "author": "dev@viperize.it",
         "description": "TOI Shield",
         "name": "TOI Shield",
-        "fullname":"lib.viper.toishield",
+        "fullname":"lib.zerynth.toishield",
         "dependencies": {
-		"lib.viper.smartsensors":"r0.3.0"
+		"lib.zerynth.smartsensors":"r1.0.0"
         }
 }
 
