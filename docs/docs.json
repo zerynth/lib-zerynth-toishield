@@ -1,7 +1,7 @@
 {
 	"version":"0.3.0",
 	"title":"TOI Shield",
-	"copyright":"Viper Team",
+	"copyright":"Zerynth Team",
 	"files":[
 		["TOI Shield","toishield.py"]
 	]
